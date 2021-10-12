@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">SlotenService</string>
+
+
+    <!--Specific names-->
+    <string name="company">Sloten Service Wassenaar</string>
+    <string name="welcome_word">Goeie dag!</string>
+
+    <!--    Basic names-->
+    <string name="delete">Verwijder</string>
+    <string name="add">Toevoegen</string>
+    <string name="edit">Aanpassen</string>
+
+    <!--    Calendar Screen-->
+    <string name="calender_screen"> Calender</string>
+
+    <!--    Appointment Screen-->
+
+    <!--    Archive Screen-->
+
+    <!--    Create Appointment Screen-->
+
 </resources>
