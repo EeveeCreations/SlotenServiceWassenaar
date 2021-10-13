@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    Text Sizes-->
+    <dimen name="title">26sp</dimen>
+    <dimen name="h1">26sp</dimen>
+    <dimen name="h2">22sp</dimen>
+    <dimen name="p">12sp</dimen>
+
+    <!--    padding-->
+    <dimen name="text_pad">5sp</dimen>
+
+
+    <!--    Button Sizes-->
+
+    <!--    Picture Sizes-->
+</resources>
