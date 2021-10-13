@@ -10,13 +10,19 @@
     <string name="delete">Verwijder</string>
     <string name="add">Toevoegen</string>
     <string name="edit">Aanpassen</string>
+    <string name="return_to">Terug</string>
+
 
     <!--    Calendar Screen-->
     <string name="calender_screen"> Calender</string>
 
     <!--    Appointment Screen-->
+    <string name="appointment">Afspraak</string>
+    <string name="create_appointment">Afspraak maken</string>
+
 
     <!--    Archive Screen-->
+    <string name="archive">Archief</string>
 
     <!--    Create Appointment Screen-->
 
