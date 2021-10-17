@@ -2,7 +2,7 @@ package nl.ekarremans.slotenservice.models;
 
 import java.sql.Timestamp;
 
-class Appointment {
+public class Appointment {
 //    Attributes
 
     private String service;
