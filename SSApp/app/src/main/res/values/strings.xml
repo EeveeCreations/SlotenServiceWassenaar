@@ -16,14 +16,20 @@
     <!--    Calendar Screen-->
     <string name="calender_screen"> Calender</string>
 
-    <!--    Appointment Screen-->
+    <!--    Appointment-->
     <string name="appointment">Afspraak</string>
-    <string name="create_appointment">Afspraak maken</string>
+
+    <string name="placeholder_name">KlantNaam</string>
+    <string name="placeholder_time">00:00</string>
+
+    <string name="placeholder_phone">06–1234567890</string>
+    <string name="placeholder_price">€5,45</string>
+    <string name="placeholder_service">Dienst</string>
 
 
     <!--    Archive Screen-->
     <string name="archive">Archief</string>
 
     <!--    Create Appointment Screen-->
-
+    <string name="create_appointment">Afspraak maken</string>
 </resources>

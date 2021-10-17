@@ -13,4 +13,10 @@
     <!--    Button Sizes-->
 
     <!--    Picture Sizes-->
+
+    <!--    appointment card Sizes-->
+    <dimen name="calender_appointment_height">80sp</dimen>
+    <dimen name="time">22sp</dimen>
+
+
 </resources>
