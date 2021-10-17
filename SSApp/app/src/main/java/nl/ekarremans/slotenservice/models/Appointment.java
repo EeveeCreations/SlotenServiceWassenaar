@@ -8,6 +8,7 @@ public class Appointment {
     private String service;
     private String customerName;
     private String time;
+    private String date;
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
@@ -15,18 +16,26 @@ public class Appointment {
 
 //    Constructor
 
-    public Appointment(String service, String customerName, String time, float price, boolean isPaid, boolean isCompleted) {
+    public Appointment(String service, String customerName, String time, String date, float price, boolean isPaid, boolean isCompleted) {
         this.service = service;
         this.customerName = customerName;
         this.time = time;
+        this.date = date;
         this.price = price;
         this.isPaid = isPaid;
         this.isCompleted = isCompleted;
     }
 
-
 //    Setters and Getters
 
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public boolean isPaid() {
         return isPaid;

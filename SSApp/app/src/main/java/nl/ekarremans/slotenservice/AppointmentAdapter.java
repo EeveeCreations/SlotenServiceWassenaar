@@ -15,6 +15,7 @@ import nl.ekarremans.slotenservice.models.Appointment;
 class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder> {
     private ArrayList<Appointment> appointments;
 
+
     public AppointmentAdapter(ArrayList<Appointment> appointments) {
         this.appointments = appointments;
     }

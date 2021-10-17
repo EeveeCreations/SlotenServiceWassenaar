@@ -10,37 +10,75 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import java.security.Timestamp;
-import java.sql.Time;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import nl.ekarremans.slotenservice.models.Appointment;
 
 public class CalenderActivity extends AppCompatActivity {
     private ArrayList<Appointment> appointments = new ArrayList<>();
     private RecyclerView appointmentRecycler;
+    private FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
+    private String today;
+    private static int appointNr = 89;
+    private static CalenderActivity calenderActivity;
+
+    public static CalenderActivity getInstance(){
+        if(calenderActivity == null){
+            calenderActivity = new CalenderActivity();
+        }
+        return calenderActivity;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        Set a View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
 
+//        get Today
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
+        today = dtf.format(LocalDateTime.now());
 
         //        Set Elements
         final Button archive = findViewById(R.id.openArchive);
         final Button appointment = findViewById(R.id.newAppointment);
         appointmentRecycler = findViewById(R.id.appointment_recycler);
 
-
 //        Set Onclick Listeners
         archive.setOnClickListener(this::openArchive);
         appointment.setOnClickListener(this::openAppointment);
 
         //    Recycler View
+        startRecycleView();
+
+
+    }
+
+
+
+
+
+    public void startRecycleView() {
+        //        getAppointmentsOfTheDay();
+        appointments = getInformationOfDatabase();
+
         setAdapter();
-        setPlaceHolderInfo();
+    }
+
+    private ArrayList<Appointment> getInformationOfDatabase() {
+        return firebaseConnection.getArchiveFromDB();
+    }
+
+//    Make Recycle View
+
+
+    private void getAppointmentsOfTheDay() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
+        String today = dtf.format(LocalDateTime.now());
+        firebaseConnection.getDailyAppointmentsFromDB(today);
 
 
     }
@@ -55,22 +93,9 @@ public class CalenderActivity extends AppCompatActivity {
         appointmentRecycler.setAdapter(adapter);
     }
 
-    private void setPlaceHolderInfo() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
-        int x = 0;
-        while(x < 4){
-            Appointment appointment = new Appointment("Deur instaleren", "Jan Klaasen", dtf.format(LocalDateTime.now()).toString(), 122.4f, false, false);
-            Appointment appointment2 = new Appointment("Vervangen Slot", "Ykia  Roost", "16:10", 42.4f, false, true);
-            Appointment appointment3 = new Appointment("Sluetelen", "Julia Smith", dtf.format(LocalDateTime.now()).toString(), 82.4f, true, false);
-
-            appointments.add(appointment);
-            appointments.add(appointment2);
-            appointments.add(appointment3);
-            x++;
-        }
+//________________________end RecyclerView ____________________________________________________________//
 
 
-    }
 
     //    Change to  new View
     private void openAppointment(View view) {
@@ -84,4 +109,6 @@ public class CalenderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startRecyleView() {
+    }
 }
