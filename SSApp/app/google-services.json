@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "392733566285",
+    "project_id": "slotenservicevoorschoten",
+    "storage_bucket": "slotenservicevoorschoten.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:392733566285:android:ec615335d6239f86c00304",
+        "android_client_info": {
+          "package_name": "nl.ekarremans.slotenservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "392733566285-msbika1cu6j1bl0fm5s5841ro0qd3jbm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApN66ss0dV5VugcEnE6Kru76fFJlhnOhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "392733566285-msbika1cu6j1bl0fm5s5841ro0qd3jbm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

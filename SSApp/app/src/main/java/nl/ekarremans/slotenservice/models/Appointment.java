@@ -2,12 +2,12 @@ package nl.ekarremans.slotenservice.models;
 
 import java.sql.Timestamp;
 
-public class Appointment {
+class Appointment {
 //    Attributes
 
     private String service;
     private String customerName;
-    private Timestamp time;
+    private String time;
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
@@ -15,7 +15,7 @@ public class Appointment {
 
 //    Constructor
 
-    public Appointment(String service, String customerName, Timestamp time, float price, boolean isPaid, boolean isCompleted) {
+    public Appointment(String service, String customerName, String time, float price, boolean isPaid, boolean isCompleted) {
         this.service = service;
         this.customerName = customerName;
         this.time = time;
@@ -60,11 +60,11 @@ public class Appointment {
         this.customerName = customerName;
     }
 
-    public Timestamp getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
