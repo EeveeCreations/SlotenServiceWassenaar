@@ -3,78 +3,78 @@
     "appointment": {
       "appointment": {
         "id" : 1,
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "17-10",
-        "is_payed": true,
-        "is_completed": false
+        "isPaid": true,
+        "isCompleted": false
       },
       "2": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "17-10",
-        "is_payed": true,
-        "is_completed": false
+        "isPaid": true,
+        "isCompleted": false
       },
       "3": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "17-10",
-        "is_payed": true,
-        "is_completed": false
+        "isPaid": true,
+        "isCompleted": false
       },
       "4": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "17-10",
-        "is_payed": true,
-        "is_completed": false
+        "isPaid": true,
+        "isCompleted": false
       }
     },
     "archives": {
       "7": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "16-10",
-        "is_payed": true,
-        "is_completed": true
+        "isPaid": true,
+        "isCompleted": true
       },
       "8": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "16-10",
-        "is_payed": true,
-        "is_completed": true
+        "isPaid": true,
+        "isCompleted": true
       },
       "39": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "16-10",
-        "is_payed": true,
-        "is_completed": true
+        "isPaid": true,
+        "isCompleted": true
       },
       "23": {
-        "client_name": "Eefje",
+        "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
         "time": "12:00",
         "date": "16-10",
-        "is_payed": true,
-        "is_completed": true
+        "isPaid": true,
+        "isCompleted": true
       }
     }
   }

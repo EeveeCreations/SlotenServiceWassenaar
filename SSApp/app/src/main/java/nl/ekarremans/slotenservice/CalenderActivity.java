@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -53,23 +54,15 @@ public class CalenderActivity extends AppCompatActivity {
 
         //    Recycler View
         startRecycleView();
-
-
     }
 
 
 
 
 
-    public void startRecycleView() {
-        //        getAppointmentsOfTheDay();
-        appointments = getInformationOfDatabase();
-
+    private void getInformationOfDatabase() {
+        appointments = firebaseConnection.getArchiveFromDB();
         setAdapter();
-    }
-
-    private ArrayList<Appointment> getInformationOfDatabase() {
-        return firebaseConnection.getArchiveFromDB();
     }
 
 //    Make Recycle View
@@ -84,6 +77,8 @@ public class CalenderActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
+//        TextView txtV = findViewById(R.id.Array);
+//        txtV.setText(appointments.get(0).getCustomerName());
         AppointmentAdapter adapter = new AppointmentAdapter(appointments);
         RecyclerView appointmentRecycler = findViewById(R.id.appointment_recycler);
 
@@ -109,6 +104,7 @@ public class CalenderActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void startRecyleView() {
+    public void startRecycleView() {
+        getInformationOfDatabase();
     }
 }

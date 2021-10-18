@@ -1,10 +1,8 @@
 package nl.ekarremans.slotenservice.models;
 
-import java.sql.Timestamp;
-
 public class Appointment {
 //    Attributes
-
+    private Long id;
     private String service;
     private String customerName;
     private String time;
@@ -16,18 +14,41 @@ public class Appointment {
 
 //    Constructor
 
-    public Appointment(String service, String customerName, String time, String date, float price, boolean isPaid, boolean isCompleted) {
-        this.service = service;
+    public Appointment( String customerName, String date, boolean isCompleted, boolean isPaid, float price, String service, String time) {
         this.customerName = customerName;
-        this.time = time;
         this.date = date;
-        this.price = price;
         this.isPaid = isPaid;
         this.isCompleted = isCompleted;
+        this.price = price;
+        this.service = service;
+        this.time = time;
+
+
+
+    }
+
+    //    Firebase
+    public Appointment() {
     }
 
 //    Setters and Getters
 
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
 
     public String getDate() {
         return date;
@@ -37,20 +58,20 @@ public class Appointment {
         this.date = date;
     }
 
-    public boolean isPaid() {
+    public boolean getIsPaid() {
         return isPaid;
     }
 
-    public void setPaid(boolean paid) {
-        isPaid = paid;
+    public void setIsPaid(boolean isPaid) {
+        this.isPaid = isPaid;
     }
 
-    public boolean isCompleted() {
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public String getService() {
