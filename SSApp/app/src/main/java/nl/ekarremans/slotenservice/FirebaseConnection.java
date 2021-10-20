@@ -91,10 +91,12 @@ class FirebaseConnection {
 //    _____________Write to _______________________//
 
     //    Write to Appointment database
-    public boolean writeAppointmentToDB(HashMap<String, Appointment> appointment, int nr) {
-        DatabaseReference reference = database.getReference("sloten_service");
-        reference.child(String.valueOf(nr)).setValue(appointment.get(String.valueOf(nr)));
+    public boolean writeAppointmentToDB(Appointment appointment) {
+        DatabaseReference reference = database.getReference("sloten_service/appointment");
+        String id = reference.push().getKey();
+        appointment.setId(id);
 
+        reference.child(id).setValue(appointment);
         return true;
     }
 

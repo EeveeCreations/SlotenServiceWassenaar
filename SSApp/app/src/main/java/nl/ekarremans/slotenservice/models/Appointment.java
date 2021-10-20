@@ -2,9 +2,10 @@ package nl.ekarremans.slotenservice.models;
 
 public class Appointment {
 //    Attributes
-    private Long id;
+    private String id;
     private String service;
     private String customerName;
+    private String phone;
     private String time;
     private String date;
     private float price;
@@ -14,18 +15,7 @@ public class Appointment {
 
 //    Constructor
 
-    public Appointment( String customerName, String date, boolean isCompleted, boolean isPaid, float price, String service, String time) {
-        this.customerName = customerName;
-        this.date = date;
-        this.isPaid = isPaid;
-        this.isCompleted = isCompleted;
-        this.price = price;
-        this.service = service;
-        this.time = time;
 
-
-
-    }
 
     //    Firebase
     public Appointment() {
@@ -33,12 +23,25 @@ public class Appointment {
 
 //    Setters and Getters
 
+    public Appointment(String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
+        this.service = service;
+        this.customerName = customerName;
+        this.phone = phone;
+        this.time = time;
+        this.date = date;
+        this.price = price;
+        this.isPaid = isPaid;
+        this.isCompleted = isCompleted;
+    }
 
-    public Long getId() {
+//    Getters en Setters
+
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

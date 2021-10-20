@@ -8,20 +8,156 @@
     tools:context=".AddAppointmentActivity">
 
   <Button
-      android:id="@+id/button"
+      android:id="@+id/add_appointment"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginStart="272dp"
-      android:layout_marginTop="612dp"
-      android:text="@string/delete"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      android:layout_marginEnd="32dp"
+      android:layout_marginBottom="32dp"
+      android:text="@string/add"
+      android:background="@color/prim_light"
+      android:backgroundTint="@color/prim_light"
+      android:textSize="@dimen/h2"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
   <Button
       android:id="@+id/returnMainButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
       android:text="@string/return_to"
-      tools:layout_editor_absoluteX="43dp"
-      tools:layout_editor_absoluteY="34dp" />
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <EditText
+      android:id="@+id/appointment_edit_time"
+      android:layout_width="323dp"
+      android:layout_height="42dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:inputType="time"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_time" />
+
+  <EditText
+      android:id="@+id/appointment_edit_date"
+      android:layout_width="322dp"
+      android:layout_height="45dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:inputType="date"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_date" />
+
+  <TextView
+      android:id="@+id/appointment_price"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="12dp"
+      android:text="@string/appointment_price"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_edit_date" />
+
+  <TextView
+      android:id="@+id/appointment_date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:text="@string/appointment_date"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_edit_time" />
+
+  <TextView
+      android:id="@+id/name_client"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="12dp"
+      android:text="@string/client_name"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/returnMainButton" />
+
+  <Spinner
+      android:id="@+id/appointment_service_Spinner"
+      android:layout_width="326dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_service" />
+
+  <TextView
+      android:id="@+id/client_phone"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="72dp"
+      android:text="@string/client_phone"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/name_client" />
+
+  <EditText
+      android:id="@+id/client_edit_name"
+      android:layout_width="332dp"
+      android:layout_height="46dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/name_client" />
+
+  <EditText
+      android:id="@+id/client_edit_phone"
+      android:layout_width="331dp"
+      android:layout_height="52dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:ems="10"
+      android:inputType="phone"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/client_phone" />
+
+  <TextView
+      android:id="@+id/appointment_time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="68dp"
+      android:text="@string/appointment_time"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_service" />
+
+  <TextView
+      android:id="@+id/appointment_service"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="60dp"
+      android:text="@string/appointment_service"
+      android:textSize="@dimen/h2"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/client_phone" />
+
+  <EditText
+      android:id="@+id/appointment_edit_price"
+      android:layout_width="319dp"
+      android:layout_height="46dp"
+      android:layout_marginStart="33dp"
+      android:layout_marginTop="10dp"
+      android:ems="10"
+      android:inputType="numberDecimal"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/appointment_price" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

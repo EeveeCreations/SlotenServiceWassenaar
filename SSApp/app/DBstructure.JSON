@@ -2,10 +2,10 @@
   "sloten_service": {
     "appointment": {
       "appointment": {
-        "id" : 1,
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "17-10",
         "isPaid": true,
@@ -15,6 +15,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "17-10",
         "isPaid": true,
@@ -24,6 +25,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "17-10",
         "isPaid": true,
@@ -33,6 +35,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "17-10",
         "isPaid": true,
@@ -44,6 +47,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "16-10",
         "isPaid": true,
@@ -53,6 +57,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "16-10",
         "isPaid": true,
@@ -62,6 +67,7 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "16-10",
         "isPaid": true,
@@ -71,10 +77,28 @@
         "customerName": "Eefje",
         "service": "Slot vervangen",
         "price": 10.00,
+        "phone": "061234567890",
         "time": "12:00",
         "date": "16-10",
         "isPaid": true,
         "isCompleted": true
+      }},
+    "Services": {
+      "1": {
+        "name": "Deuren Openen",
+        "price": 88.00
+      },
+      "2": {
+        "name": "Dueren inzetten",
+        "price": 230.00
+      },
+      "3": {
+        "name": "Adviseren",
+        "price": 50.00
+      },
+      "4": {
+        "name": "Sloten Vervangen",
+        "price": 189.00
       }
     }
   }
