@@ -2,7 +2,7 @@
   "sloten_service": {
     "appointment": {
       "appointment": {
-        "customerName": "Eefje",
+        "customerName": "Horrow",
         "service": "Slot vervangen",
         "price": 10.00,
         "phone": "061234567890",
@@ -23,7 +23,7 @@
       },
       "3": {
         "customerName": "Eefje",
-        "service": "Slot vervangen",
+        "service": "Deur vervangen",
         "price": 10.00,
         "phone": "061234567890",
         "time": "12:00",
@@ -32,7 +32,7 @@
         "isCompleted": false
       },
       "4": {
-        "customerName": "Eefje",
+        "customerName": "Yolanda",
         "service": "Slot vervangen",
         "price": 10.00,
         "phone": "061234567890",
@@ -49,7 +49,7 @@
         "price": 10.00,
         "phone": "061234567890",
         "time": "12:00",
-        "date": "16-10",
+        "date": "23-10",
         "isPaid": true,
         "isCompleted": true
       },
@@ -59,7 +59,7 @@
         "price": 10.00,
         "phone": "061234567890",
         "time": "12:00",
-        "date": "16-10",
+        "date": "22-10",
         "isPaid": true,
         "isCompleted": true
       },
@@ -69,7 +69,7 @@
         "price": 10.00,
         "phone": "061234567890",
         "time": "12:00",
-        "date": "16-10",
+        "date": "24-10",
         "isPaid": true,
         "isCompleted": true
       },
@@ -79,11 +79,11 @@
         "price": 10.00,
         "phone": "061234567890",
         "time": "12:00",
-        "date": "16-10",
+        "date": "21-10",
         "isPaid": true,
         "isCompleted": true
       }},
-    "Services": {
+    "services": {
       "1": {
         "name": "Deuren Openen",
         "price": 88.00

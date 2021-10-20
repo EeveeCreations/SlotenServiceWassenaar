@@ -1,6 +1,6 @@
 package nl.ekarremans.slotenservice.models;
 
-class Service {
+public class kService {
 
 //    Attributen
     private String name;
@@ -8,7 +8,7 @@ class Service {
 
 
 //    Constructoor
-    public Service(String name, int price) {
+    public kService(String name, int price) {
         this.name = name;
         this.price = price;
     }

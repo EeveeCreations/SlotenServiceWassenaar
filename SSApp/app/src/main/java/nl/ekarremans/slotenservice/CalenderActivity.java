@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import nl.ekarremans.slotenservice.models.Appointment;
 
@@ -57,28 +58,20 @@ public class CalenderActivity extends AppCompatActivity {
     }
 
 
-
-
-
     private void getInformationOfDatabase() {
-        appointments = firebaseConnection.getArchiveFromDB();
+        appointments = getAppointmentsOfTheDay();
         setAdapter();
     }
 
+
 //    Make Recycle View
-
-
-    private void getAppointmentsOfTheDay() {
+    private ArrayList<Appointment> getAppointmentsOfTheDay() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
         String today = dtf.format(LocalDateTime.now());
-        firebaseConnection.getDailyAppointmentsFromDB(today);
-
-
+        return firebaseConnection.getDailyAppointmentsFromDB(today);
     }
 
     private void setAdapter() {
-//        TextView txtV = findViewById(R.id.Array);
-//        txtV.setText(appointments.get(0).getCustomerName());
         AppointmentAdapter adapter = new AppointmentAdapter(appointments);
         RecyclerView appointmentRecycler = findViewById(R.id.appointment_recycler);
 
