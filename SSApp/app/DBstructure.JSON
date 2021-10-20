@@ -1,0 +1,81 @@
+{
+  "sloten_service": {
+    "appointment": {
+      "appointment": {
+        "id" : 1,
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "2": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "3": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "4": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      }
+    },
+    "archives": {
+      "7": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "16-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "8": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "16-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "39": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "16-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "23": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "time": "12:00",
+        "date": "16-10",
+        "isPaid": true,
+        "isCompleted": true
+      }
+    }
+  }
+}

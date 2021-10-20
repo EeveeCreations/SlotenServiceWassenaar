@@ -2,10 +2,11 @@ package nl.ekarremans.slotenservice.models;
 
 public class Appointment {
 //    Attributes
-
+    private Long id;
     private String service;
     private String customerName;
     private String time;
+    private String date;
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
@@ -13,33 +14,64 @@ public class Appointment {
 
 //    Constructor
 
-    public Appointment(String service, String customerName, String time, float price, boolean isPaid, boolean isCompleted) {
-        this.service = service;
+    public Appointment( String customerName, String date, boolean isCompleted, boolean isPaid, float price, String service, String time) {
         this.customerName = customerName;
-        this.time = time;
-        this.price = price;
+        this.date = date;
         this.isPaid = isPaid;
         this.isCompleted = isCompleted;
+        this.price = price;
+        this.service = service;
+        this.time = time;
+
+
+
     }
 
+    //    Firebase
+    public Appointment() {
+    }
 
 //    Setters and Getters
 
 
-    public boolean isPaid() {
-        return isPaid;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setPaid(boolean paid) {
         isPaid = paid;
     }
 
-    public boolean isCompleted() {
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public boolean getIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(boolean isPaid) {
+        this.isPaid = isPaid;
+    }
+
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public String getService() {

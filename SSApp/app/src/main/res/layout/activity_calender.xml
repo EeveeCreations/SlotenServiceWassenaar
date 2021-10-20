@@ -29,15 +29,31 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/appointment_recycler"
         android:layout_width="409dp"
-        android:layout_height="665dp"
+        android:layout_height="555dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/openArchive"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/activity_appointment_item" />
+
+    <TextView
+        android:id="@+id/Array"
+        android:layout_width="322dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="15dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/appointment_recycler"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/openArchive" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

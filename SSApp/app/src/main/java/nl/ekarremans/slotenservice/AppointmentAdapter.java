@@ -14,26 +14,38 @@ import nl.ekarremans.slotenservice.models.Appointment;
 
 class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.AppointmentViewHolder> {
     private ArrayList<Appointment> appointments;
+    private static AppointmentAdapter appointmentAdapter;
+
+    public static AppointmentAdapter getInstance() {
+        if(appointmentAdapter == null){
+            appointmentAdapter = new AppointmentAdapter();
+        }
+        return appointmentAdapter;
+    }
 
     public AppointmentAdapter(ArrayList<Appointment> appointments) {
         this.appointments = appointments;
     }
 
-    public class AppointmentViewHolder extends RecyclerView.ViewHolder{
+    public AppointmentAdapter() {
+    }
+
+    public class AppointmentViewHolder extends RecyclerView.ViewHolder {
         private TextView clientName;
         private TextView timeAppointment;
 
-        public AppointmentViewHolder(final View v){
+        public AppointmentViewHolder(final View v) {
             super(v);
             clientName = v.findViewById(R.id.client_name);
             timeAppointment = v.findViewById(R.id.appointment_time);
 
         }
     }
+
     @NonNull
     @Override
     public AppointmentAdapter.AppointmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View appointmentItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_appointment_item,parent,false);
+        View appointmentItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_appointment_item, parent, false);
         return new AppointmentViewHolder(appointmentItemView);
     }
 
@@ -48,6 +60,6 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
 
     @Override
     public int getItemCount() {
-        return  appointments.size();
+        return appointments.size();
     }
 }
