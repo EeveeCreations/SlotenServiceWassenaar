@@ -4,6 +4,7 @@
     <dimen name="title">26sp</dimen>
     <dimen name="h1">26sp</dimen>
     <dimen name="h2">22sp</dimen>
+    <dimen name="h3">16sp</dimen>
     <dimen name="p">12sp</dimen>
 
     <!--    padding-->
@@ -13,6 +14,7 @@
     <!--    Button Sizes-->
 
     <!--    Picture Sizes-->
+    <dimen name="icon">46sp</dimen>
 
     <!--    appointment card Sizes-->
     <dimen name="calender_appointment_height">80sp</dimen>

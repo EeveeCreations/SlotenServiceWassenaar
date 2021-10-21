@@ -18,10 +18,20 @@
 
     <!--    Appointment-->
     <string name="appointment">Afspraak</string>
+    <string name="paid_button">betaalt</string>
+    <string name="complete_button">uitgevoerd</string>
+    <string name="phone_Icon">✆</string>
 
+
+
+
+    <!--Placeholders-->
     <string name="placeholder_name">KlantNaam</string>
     <string name="placeholder_time">00:00</string>
 
+    <string name="placeholder_date">07-12</string>
+    <string name="placeholder_paid">De uitvoering is betaalt</string>
+    <string name="placeholder_completed">De uitvoering is niet afgerond</string>
     <string name="placeholder_phone">06–1234567890</string>
     <string name="placeholder_price">€5,45</string>
     <string name="placeholder_service">Dienst</string>
@@ -32,6 +42,20 @@
 
     <!--    Create Appointment Screen-->
     <string name="create_appointment">Afspraak maken</string>
+    <string name="client_name">Klanten naam</string>
+
+    <string name="client_phone">Telefoon van klant</string>
+    <string name="appointment_time">Tijd van afspraak</string>
+    <string name="appointment_date">Datum van afspraak</string>
+    <string name="appointment_price">Prijs van de afspraak</string>
+    <string name="appointment_service">Dienst</string>
+
+    <!-- Diensten lijst  -->
+    <string name="service_slot">Sloten instaleren</string>
+    <string name="service_door">Deur in huis zetten</string>
+    <string name="service_open">Openen van slot</string>
+    <string name="service_advise">Adviseren van klant</string>
+
 
     <!--    Database Connection-->
     <string name="failed_connection_title">Oeps!</string>
@@ -41,5 +65,8 @@
     <string name="success_connection_body">De afspraak is toegevoegd aan uw calender.</string>
     <string name="title_activity_maps">MapsActivity</string>
 
-    failed_connection_title
+
+
+
+
 </resources>

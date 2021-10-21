@@ -36,7 +36,7 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
 
         public AppointmentViewHolder(final View v) {
             super(v);
-            clientName = v.findViewById(R.id.client_name);
+            clientName = v.findViewById(R.id.client_cname);
             timeAppointment = v.findViewById(R.id.appointment_time);
 
         }
