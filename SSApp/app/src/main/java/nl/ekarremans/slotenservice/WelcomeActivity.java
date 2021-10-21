@@ -37,7 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     }
     private String getAppointmentsOfTheDay() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM");
         String today = dtf.format(LocalDateTime.now());
         FirebaseConnection.getInstance().getDailyAppointmentsFromDB(today);
         return today;

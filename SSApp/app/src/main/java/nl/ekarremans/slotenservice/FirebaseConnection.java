@@ -86,21 +86,17 @@ class FirebaseConnection {
     //    Get Day Appointments
     public ArrayList<Appointment> getDailyAppointmentsFromDB(String today) {
 //        Make sure its only for today
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("sloten_service/appoinment")
-                .addValueEventListener(new ValueEventListener() {
+        DatabaseReference reference = database.getReference("sloten_service/appointment");
+        reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot DSS) {
                         /*Specify the date*/
                         for (DataSnapshot dataSnapshot : DSS.getChildren()) {
-                            for (DataSnapshot apointShot : dataSnapshot.getChildren()) {
-                                if (apointShot.child("date").getValue().equals(today)) {
-                                    Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                                Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                                if (appointment.getDate().equals(today)) {
                                     appointments.add(appointment);
                                 }
-                            }
                             AppointmentAdapter.getInstance().notifyDataSetChanged();
-
                         }
                     }
 

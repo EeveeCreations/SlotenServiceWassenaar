@@ -64,7 +64,7 @@ public class CalenderActivity extends AppCompatActivity {
 
 //    Make Recycle View
     private ArrayList<Appointment> getAppointmentsOfTheDay() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM");
         String today = dtf.format(LocalDateTime.now());
         return firebaseConnection.getDailyAppointmentsFromDB(today);
     }

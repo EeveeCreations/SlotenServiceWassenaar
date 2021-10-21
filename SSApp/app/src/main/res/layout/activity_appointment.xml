@@ -27,13 +27,14 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/reg_app_cName"
+        android:id="@+id/reg_app_cname"
         android:layout_width="329dp"
         android:layout_height="39dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="32dp"
         android:text="@string/placeholder_name"
         android:textSize="@dimen/h1"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,11 +44,13 @@
         android:id="@+id/reg_app_date"
         android:layout_width="194dp"
         android:layout_height="41dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:text="@string/placeholder_date"
         android:textSize="@dimen/h1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reg_app_time"
         app:layout_constraintTop_toBottomOf="@+id/reg_app_phone" />
 
     <TextView
@@ -56,8 +59,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="476dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/placeholder_completed"
         android:textSize="@dimen/h1"
+        app:layout_constraintBottom_toTopOf="@+id/complete_service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,13 +73,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="77dp"
         android:text="@string/placeholder_paid"
         android:textSize="@dimen/h1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_service" />
 
     <TextView
         android:id="@+id/reg_app_phone"
@@ -82,10 +87,12 @@
         android:layout_height="32dp"
         android:layout_marginStart="88dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="112dp"
         android:text="@string/placeholder_phone"
         android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_app_cName" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_cname" />
 
     <TextView
         android:id="@+id/reg_app_service"
@@ -104,8 +111,12 @@
         android:layout_height="39dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="208dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="33dp"
         android:text="@string/placeholder_time"
         android:textSize="@dimen/h1"
+        app:layout_constraintBottom_toTopOf="@+id/reg_app_service"
+        app:layout_constraintEnd_toStartOf="@+id/reg_app_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,11 +124,13 @@
         android:id="@+id/reg_app_price"
         android:layout_width="130dp"
         android:layout_height="0dp"
-        android:layout_marginStart="248dp"
+        android:layout_marginStart="126dp"
         android:layout_marginTop="31dp"
+        android:layout_marginEnd="33dp"
         android:text="@string/placeholder_price"
         android:textSize="@dimen/h1"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reg_app_service"
         app:layout_constraintTop_toBottomOf="@+id/reg_app_date" />
 
     <Button
@@ -125,7 +138,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/complete_button"
+        app:layout_constraintBottom_toTopOf="@+id/delete_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,9 +161,13 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="43dp"
         android:layout_marginEnd="4dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/phone_Icon"
         android:textSize="@dimen/icon"
+        app:layout_constraintBottom_toTopOf="@+id/reg_app_time"
         app:layout_constraintEnd_toStartOf="@+id/reg_app_phone"
-        app:layout_constraintTop_toBottomOf="@+id/reg_app_cName" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_cname" />
 </androidx.constraintlayout.widget.ConstraintLayout>
