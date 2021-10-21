@@ -4,8 +4,8 @@ public class Appointment {
 //    Attributes
     private String id;
     private String service;
-    private String customerName;
     private String phone;
+    private String customerName;
     private String time;
     private String date;
     private float price;
@@ -15,15 +15,7 @@ public class Appointment {
 
 //    Constructor
 
-
-
-    //    Firebase
-    public Appointment() {
-    }
-
-//    Setters and Getters
-
-    public Appointment(String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
+    public Appointment( String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
         this.service = service;
         this.customerName = customerName;
         this.phone = phone;
@@ -34,8 +26,20 @@ public class Appointment {
         this.isCompleted = isCompleted;
     }
 
-//    Getters en Setters
+    //    Firebase
+    public Appointment() {
+    }
 
+//    Setters and Getters
+
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getId() {
         return id;

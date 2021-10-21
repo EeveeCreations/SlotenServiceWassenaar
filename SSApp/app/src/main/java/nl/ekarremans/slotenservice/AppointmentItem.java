@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 
 import nl.ekarremans.slotenservice.models.Appointment;
@@ -21,7 +22,9 @@ public class AppointmentItem extends AppCompatActivity {
 
     private void OpenAppointment(View view) {
         Intent intent = new Intent(AppointmentItem.this, Appointment.class);
+        Appointment appointment = new Appointment();
 //        Todo: Set and give appointment ID
-        intent.putExtra("AppID","AppointmentID");
+        /*Make teh appointment  possible to change*/
+        intent.putExtra("AppID", (Parcelable) appointment);
     }
 }

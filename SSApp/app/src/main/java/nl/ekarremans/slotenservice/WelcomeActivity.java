@@ -8,6 +8,12 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import nl.ekarremans.slotenservice.models.Appointment;
+
 public class WelcomeActivity extends AppCompatActivity {
     private final int SPLASH_DISPLAY_MS = 5000;
 
@@ -15,6 +21,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        //        prepare Recycle
+        getAppointmentsOfTheDay();
 
 //      Show logo of SSVW  voor doorgaan naar Calender
         new Handler().postDelayed(new Runnable() {
@@ -27,5 +35,11 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }, SPLASH_DISPLAY_MS);
 
+    }
+    private String getAppointmentsOfTheDay() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
+        String today = dtf.format(LocalDateTime.now());
+        FirebaseConnection.getInstance().getDailyAppointmentsFromDB(today);
+        return today;
     }
 }

@@ -39,11 +39,8 @@ public class CalenderActivity extends AppCompatActivity {
 //        Set a View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
-
-//        get Today
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd - MM");
-        today = dtf.format(LocalDateTime.now());
-
+        firebaseConnection.getArchiveFromDB();
+        firebaseConnection.getArchiveFromDB();
         //        Set Elements
         final Button archive = findViewById(R.id.openArchive);
         final Button appointment = findViewById(R.id.newAppointment);
@@ -54,6 +51,7 @@ public class CalenderActivity extends AppCompatActivity {
         appointment.setOnClickListener(this::openAppointment);
 
         //    Recycler View
+
         startRecycleView();
     }
 
