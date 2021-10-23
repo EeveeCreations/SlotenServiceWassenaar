@@ -39,8 +39,6 @@ public class CalenderActivity extends AppCompatActivity {
 //        Set a View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
-        firebaseConnection.getArchiveFromDB();
-        firebaseConnection.getArchiveFromDB();
         //        Set Elements
         final Button archive = findViewById(R.id.openArchive);
         final Button appointment = findViewById(R.id.newAppointment);

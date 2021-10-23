@@ -85,6 +85,7 @@ class FirebaseConnection {
 
     //    Get Day Appointments
     public ArrayList<Appointment> getDailyAppointmentsFromDB(String today) {
+        appointments.clear();
 //        Make sure its only for today
         DatabaseReference reference = database.getReference("sloten_service/appointment");
         reference.addValueEventListener(new ValueEventListener() {
@@ -96,8 +97,8 @@ class FirebaseConnection {
                                 if (appointment.getDate().equals(today)) {
                                     appointments.add(appointment);
                                 }
-                            AppointmentAdapter.getInstance().notifyDataSetChanged();
                         }
+                        adapter.notifyDataSetChanged();
                     }
 
                     @Override
