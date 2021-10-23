@@ -62,8 +62,8 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
     //      Add an Appointment
     private void addAppointment(View view) {
-        boolean isFinnished = firebaseConnection.writeAppointmentToDB(getAllInformation());
-        showPopUp(isFinnished);
+        boolean isFinished = firebaseConnection.writeAppointmentToDB(getAllInformation());
+        showPopUp(isFinished);
     }
 
     private void showPopUp(boolean b) {
@@ -79,6 +79,12 @@ public class AddAppointmentActivity extends AppCompatActivity {
         String aTime =((EditText) findViewById(R.id.appointment_edit_time)).getText().toString();
         float aPrice = Float.parseFloat(((EditText) findViewById(R.id.appointment_edit_price)).getText().toString());
         String aService = ((Spinner) findViewById(R.id.appointment_service_Spinner)).getSelectedItem().toString();
+
+//      set correct Setup for date / time
+        aDate = aDate.replace("/", "-");
+        aDate = aDate.replace(" ", "");
+
+        aTime = aTime.replace(" ", "");
 
         Appointment appointment = new Appointment(aService,cName,cPhone, aTime,aDate,aPrice,false ,false);
 

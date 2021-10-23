@@ -34,10 +34,58 @@ class FirebaseConnection {
     }
 
 //    __________________GET ____________________________________________//
+    //   Get specific Appointment
+    public Appointment getSpecificAppointmentAppointment(String appID){
+        final Appointment[] wantedApp = {new Appointment()};
+        DatabaseReference reference = database.getReference("sloten_service/appointment");
+        reference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot DSS) {
+                for (DataSnapshot dataSnapshot : DSS.getChildren()) {
+                    Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                    if (appointment.getId().equals(appID)) {
+                        wantedApp[0] = appointment;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, String.valueOf(R.string.failed_connection_title));
+            }
+        });
+        if(wantedApp.length < 1){
+           wantedApp[0] =  getSpecificAppointmentArchive(appID);
+        }
+        return wantedApp[0];
+    }
+    public Appointment getSpecificAppointmentArchive(String appID){
+        final Appointment[] wantedApp = {new Appointment()};
+        DatabaseReference reference = database.getReference("sloten_service/archive");
+        reference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot DSS) {
+                for (DataSnapshot dataSnapshot : DSS.getChildren()) {
+                    Appointment appointment = dataSnapshot.getValue(Appointment.class);
+                    if (appointment.getId().equals(appID)) {
+                        wantedApp[0] = appointment;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, String.valueOf(R.string.failed_connection_title));
+            }
+        });
+        return wantedApp[0];
+    }
 
     //   Get archiveAppointments
     public ArrayList<Appointment> getArchiveFromDB() {
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
+        DatabaseReference reference = database.getReference("sloten_service/archives");
         reference.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
