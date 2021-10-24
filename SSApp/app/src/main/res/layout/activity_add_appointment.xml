@@ -20,16 +20,6 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
-  <Button
-      android:id="@+id/returnMainButton"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginTop="16dp"
-      android:text="@string/return_to"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
-
   <EditText
       android:id="@+id/appointment_edit_price"
       android:layout_width="167dp"
@@ -141,11 +131,10 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="32dp"
-      android:layout_marginTop="32dp"
       android:text="@string/client_name"
       android:textSize="@dimen/h3"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/returnMainButton" />
+      tools:layout_editor_absoluteY="96dp" />
 
   <EditText
       android:id="@+id/client_edit_phone"

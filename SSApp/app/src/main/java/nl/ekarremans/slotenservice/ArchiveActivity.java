@@ -1,5 +1,6 @@
 package nl.ekarremans.slotenservice;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,14 +26,15 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
         setContentView(R.layout.activity_archive);
         setButtons();
 
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        Recycle view
         setAdapter();
 
     }
 
+
     private void setButtons() {
-        final Button returnB = findViewById(R.id.returnMainButton);
-        returnB.setOnClickListener(this::openCalender);
     }
 
 
@@ -52,15 +54,15 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
     }
 
 
-    //    Return to CalenderScreen
-    private void openCalender(View view) {
-        Intent intent = new Intent(this, CalenderActivity.class);
-        startActivity(intent);
-
-    }
-
     @Override
     public void onNoteClick(int position) {
 
+    }
+
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

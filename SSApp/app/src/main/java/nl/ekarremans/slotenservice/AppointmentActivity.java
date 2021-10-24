@@ -6,22 +6,43 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.io.Serializable;
 
 import nl.ekarremans.slotenservice.models.Appointment;
 
 public class AppointmentActivity extends AppCompatActivity {
     Appointment currentAppointment = new Appointment();
+    FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
-        currentAppointment = getIntent().getParcelableExtra("AppID");
+//        Get Appointment
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                currentAppointment =(Appointment) extras.getSerializable("AppID");
+            }
+        } else {
+            currentAppointment =(Appointment) savedInstanceState.getSerializable("AppID");
+        }
+//        Bundle extras = getIntent().getExtras();
+//        String currentAppointmentId = extras.getParcelable("AppID");
+//        setCurrentAppointment(currentAppointmentId);
+
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         setButtons();
         setAppointmentSpecifics();
+    }
+
+
+    private void setCurrentAppointment(String currentAppointmentId) {
+        currentAppointment = firebaseConnection.getSpecificAppointmentAppointment(currentAppointmentId);
     }
 
     private void setAppointmentSpecifics() {
@@ -34,11 +55,9 @@ public class AppointmentActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
-        final Button rButton = findViewById(R.id.returnMainButton);
         final Button paidButton = findViewById(R.id.paid_service);
         final Button completeButton = findViewById(R.id.complete_service);
 
-        rButton.setOnClickListener(this::returnToMainMenu);
         paidButton.setOnClickListener(this::setAppointmentOnPaid);
         completeButton.setOnClickListener(this::setAppointmentOnCompleted);
 
@@ -53,8 +72,10 @@ public class AppointmentActivity extends AppCompatActivity {
 
     }
 
-    private void returnToMainMenu(View view) {
-        Intent intent = new Intent(AppointmentActivity.this, CalenderActivity.class);
-        startActivity(intent);
+//        return To Calender View
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

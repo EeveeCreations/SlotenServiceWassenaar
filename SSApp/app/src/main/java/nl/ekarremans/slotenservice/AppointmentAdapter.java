@@ -35,11 +35,11 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
     }
 
     public class AppointmentViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView clientName;
-        private final TextView timeAppointment;
-        private final TextView idAppointment;
+        private  TextView clientName;
+        private  TextView timeAppointment;
+        private  TextView idAppointment;
 //        Attach listener
-        private final OnNoteListener onNoteListenerItem;
+        private  OnNoteListener onNoteListenerItem;
 
         public AppointmentViewHolder(@NonNull final View v, OnNoteListener onNoteListenerItem) {
             super(v);

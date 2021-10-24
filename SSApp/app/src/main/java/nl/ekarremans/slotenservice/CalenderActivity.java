@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,11 +24,10 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     private RecyclerView appointmentRecycler;
     private FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
     private String today;
-    private static int appointNr = 89;
     private static CalenderActivity calenderActivity;
 
-    public static CalenderActivity getInstance(){
-        if(calenderActivity == null){
+    public static CalenderActivity getInstance() {
+        if (calenderActivity == null) {
             calenderActivity = new CalenderActivity();
         }
         return calenderActivity;
@@ -48,7 +48,6 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
         appointment.setOnClickListener(this::openAddAppointment);
 
         //    Recycler View
-
         startRecycleView();
     }
 
@@ -59,7 +58,7 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     }
 
 
-//    Make Recycle View
+    //    Make Recycle View
     private ArrayList<Appointment> getAppointmentsOfTheDay() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM");
         String today = dtf.format(LocalDateTime.now());
@@ -75,6 +74,7 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
         appointmentRecycler.setItemAnimator(new DefaultItemAnimator());
         appointmentRecycler.setAdapter(adapter);
     }
+
     @Override
     public void onNoteClick(int position) {
         Appointment appointment = appointments.get(position);
@@ -83,8 +83,8 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
 
     private void openSeeAppointment(Appointment appointment) {
         Intent intent = new Intent(this, AppointmentActivity.class);
-//        Todo: Make Appointment Parceble ? It Cracheses
-//        intent.putExtra("AppID", (Parcelable) appointment);
+//        Todo: Make Appointment Parceble ? It Cracheses//
+        intent.putExtra("AppID", (Parcelable) appointment);
         startActivity(intent);
     }
 //________________________end RecyclerView ____________________________________________________________//
@@ -105,6 +105,4 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     public void startRecycleView() {
         getInformationOfDatabase();
     }
-
-
 }
