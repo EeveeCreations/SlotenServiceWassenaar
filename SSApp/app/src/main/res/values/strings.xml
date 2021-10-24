@@ -20,7 +20,8 @@
     <string name="appointment">Afspraak</string>
     <string name="paid_button">betaalt</string>
     <string name="complete_button">uitgevoerd</string>
-    <string name="phone_Icon">✆</string>
+    <string name="phone_icon">✆</string>
+    <string name="euro_icon">€</string>
 
 
     <!--Placeholders-->

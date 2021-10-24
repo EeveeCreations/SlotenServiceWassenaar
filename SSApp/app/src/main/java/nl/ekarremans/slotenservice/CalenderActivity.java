@@ -84,7 +84,7 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     private void openSeeAppointment(Appointment appointment) {
         Intent intent = new Intent(this, AppointmentActivity.class);
 //        Todo: Make Appointment Parceble ? It Cracheses//
-        intent.putExtra("AppID", (Parcelable) appointment);
+        intent.putExtra("AppID", (Serializable) appointment);
         startActivity(intent);
     }
 //________________________end RecyclerView ____________________________________________________________//

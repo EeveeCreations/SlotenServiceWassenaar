@@ -1,6 +1,8 @@
 package nl.ekarremans.slotenservice.models;
 
-public class Appointment {
+import java.io.Serializable;
+
+public class Appointment  implements Serializable {
 //    Attributes
     private String id;
     private String service;

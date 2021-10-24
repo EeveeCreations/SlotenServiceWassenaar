@@ -21,17 +21,7 @@ public class AppointmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
 //        Get Appointment
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras != null) {
-                currentAppointment =(Appointment) extras.getSerializable("AppID");
-            }
-        } else {
-            currentAppointment =(Appointment) savedInstanceState.getSerializable("AppID");
-        }
-//        Bundle extras = getIntent().getExtras();
-//        String currentAppointmentId = extras.getParcelable("AppID");
-//        setCurrentAppointment(currentAppointmentId);
+        currentAppointment =(Appointment) getIntent().getExtras().getSerializable("AppID");
 
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -41,16 +31,12 @@ public class AppointmentActivity extends AppCompatActivity {
     }
 
 
-    private void setCurrentAppointment(String currentAppointmentId) {
-        currentAppointment = firebaseConnection.getSpecificAppointmentAppointment(currentAppointmentId);
-    }
-
     private void setAppointmentSpecifics() {
         ((TextView) findViewById(R.id.reg_app_cname)).setText(currentAppointment.getCustomerName());
         ((TextView) findViewById(R.id.reg_app_phone)).setText(currentAppointment.getPhone());
         ((TextView) findViewById(R.id.reg_app_date)).setText(currentAppointment.getDate());
         ((TextView) findViewById(R.id.reg_app_time)).setText(currentAppointment.getTime());
-        ((TextView) findViewById(R.id.reg_app_price)).setText(String.valueOf(currentAppointment.getPrice()));
+        ((TextView) findViewById(R.id.reg_app_price)).setText("€" + String.valueOf(currentAppointment.getPrice()));
         ((TextView) findViewById(R.id.reg_app_service)).setText(currentAppointment.getService());
     }
 
