@@ -1,5 +1,6 @@
 package nl.ekarremans.slotenservice;
 
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
     private ArrayList<Appointment> appointments;
     private static AppointmentAdapter appointmentAdapter;
     private OnNoteListener aOnNoteListener;
+    private View appointmentItemView;
 
 
 
@@ -38,7 +40,8 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
         private  TextView clientName;
         private  TextView timeAppointment;
         private  TextView idAppointment;
-//        Attach listener
+
+        //        Attach listener
         private  OnNoteListener onNoteListenerItem;
 
         public AppointmentViewHolder(@NonNull final View v, OnNoteListener onNoteListenerItem) {
@@ -63,7 +66,7 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
     @NonNull
     @Override
     public AppointmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View appointmentItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_appointment_item, parent, false);
+        appointmentItemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_appointment_item, parent, false);
         return new AppointmentViewHolder(appointmentItemView, aOnNoteListener);
     }
 
@@ -77,6 +80,11 @@ class AppointmentAdapter extends RecyclerView.Adapter<AppointmentAdapter.Appoint
 
         String id = appointments.get(position).getId();
         holder.idAppointment.setText(id);
+
+        if(appointments.get(position).getIsPaid()){
+            appointmentItemView.setBackground(appointmentItemView.getResources().getDrawable(R.drawable.border));
+
+        }
 
     }
 

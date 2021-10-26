@@ -14,7 +14,8 @@
     <color name="night_sec_light">#79C558</color>
     <color name="night_sec">#50A12D</color>
 
-
+<!--Specifics-->
+    <color name="paid">#79C558</color>
 
 
 <!--    GrayScale-->

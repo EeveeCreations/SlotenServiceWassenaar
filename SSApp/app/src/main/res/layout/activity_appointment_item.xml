@@ -7,6 +7,7 @@
     android:layout_height="@dimen/calender_appointment_height"
     tools:context=".AppointmentItem">
 
+
     <TextView
         android:id="@+id/client_cname"
         android:layout_width="121dp"

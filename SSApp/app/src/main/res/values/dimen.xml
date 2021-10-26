@@ -9,6 +9,8 @@
 
     <!--    padding-->
     <dimen name="text_pad">5sp</dimen>
+    <dimen name="thick_border">3dp</dimen>
+    <dimen name="thin_border">1dp</dimen>
 
 
     <!--    Button Sizes-->
