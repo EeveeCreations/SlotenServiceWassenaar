@@ -5,11 +5,7 @@ import java.io.Serializable;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
-import nl.ekarremans.slotenservice.AppointmentActivity;
-import nl.ekarremans.slotenservice.Observers.AppointmentObserver;
-import nl.ekarremans.slotenservice.Observers.AppointmentObserverble;
-
-public class Appointment implements Serializable, AppointmentObserverble {
+public class Appointment implements Serializable {
     //    Attributes
     private String id;
     private String service;
@@ -20,7 +16,6 @@ public class Appointment implements Serializable, AppointmentObserverble {
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
-    private ArrayList<AppointmentObserver> observers = new ArrayList<>();
 
 
 //    Constructor
@@ -81,18 +76,14 @@ public class Appointment implements Serializable, AppointmentObserverble {
 
     public void setIsPaid(boolean isPaid) {
         this.isPaid = isPaid;
-//        Update();
     }
 
     public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setIsCompleted(boolean isCompleted)
-//            throws FileNotFoundException, URISyntaxException
-    {
+    public void setIsCompleted(boolean isCompleted) {
         this.isCompleted = isCompleted;
-//        Update();
     }
 
     public String getService() {
@@ -127,22 +118,4 @@ public class Appointment implements Serializable, AppointmentObserverble {
         this.price = price;
     }
 
-    @Override
-    public void registerObserver(AppointmentObserver observer) {
-        this.observers.add(observer);
-    }
-
-    @Override
-    public void unregisterObserver(AppointmentObserver observer) {
-        this.observers.remove(observer);
-    }
-
-
-    @Override
-    public void Update() throws FileNotFoundException, URISyntaxException {
-        for (AppointmentObserver observer : this.observers) {
-            observer.update(this);
-        }
-
-    }
 }

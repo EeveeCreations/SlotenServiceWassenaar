@@ -2,25 +2,16 @@ package nl.ekarremans.slotenservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.FileNotFoundException;
-import java.io.Serializable;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-
-import nl.ekarremans.slotenservice.Observers.AppointmentObserver;
-import nl.ekarremans.slotenservice.Observers.AppointmentObserverble;
 import nl.ekarremans.slotenservice.models.Appointment;
 
-public class AppointmentActivity extends AppCompatActivity implements AppointmentObserver {
+public class AppointmentActivity extends AppCompatActivity {
     Appointment currentAppointment = new Appointment();
     FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
-    ArrayList<AppointmentObserverble> observerbles = new ArrayList<>();
     //    Buttons
     private Button paidButton;
     private Button completeButton;
@@ -31,7 +22,6 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         setContentView(R.layout.activity_appointment);
 //        Get Appointment
         currentAppointment = (Appointment) getIntent().getExtras().getSerializable("AppID");
-        registerAppointmentObserver(currentAppointment);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,7 +40,8 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     }
 
     private void setButtons() {
-         paidButton = findViewById(R.id.paid_service);
+        //    Buttons
+        paidButton = findViewById(R.id.paid_service);
         completeButton = findViewById(R.id.complete_service);
 
         if (currentAppointment.getIsPaid()) {
@@ -72,7 +63,7 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
     }
 
     private void setAppointmentOnPaid(View view) {
-        completeButton.setEnabled(false);
+        paidButton.setEnabled(false);
         currentAppointment.setIsPaid(!currentAppointment.getIsPaid());
         firebaseConnection.updateAppointmentToDB(currentAppointment);
     }
@@ -84,12 +75,4 @@ public class AppointmentActivity extends AppCompatActivity implements Appointmen
         return true;
     }
 
-    public void registerAppointmentObserver(Appointment appointment) {
-        appointment.registerObserver(this);
-    }
-
-    @Override
-    public void update(Appointment appointment) throws FileNotFoundException, URISyntaxException {
-        setAppointmentSpecifics();
-    }
 }

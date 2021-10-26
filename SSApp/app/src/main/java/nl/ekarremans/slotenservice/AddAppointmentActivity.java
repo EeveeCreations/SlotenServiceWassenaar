@@ -62,15 +62,13 @@ public class AddAppointmentActivity extends AppCompatActivity {
 
     //      Add an Appointment
     private void addAppointment(View view) {
-        boolean isFinished = firebaseConnection.writeAppointmentToDB(getAllInformation());
-        showPopUp(isFinished);
+        firebaseConnection.writeAppointmentToDB(getAllInformation());
+        showPopUp();
     }
 
-    private void showPopUp(boolean b) {
-        if (b) {
+    private void showPopUp() {
             Intent intent = new Intent(this, CalenderActivity.class);
             startActivity(intent);
-        }
     }
 
     private Appointment getAllInformation() {

@@ -25,17 +25,16 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_archive);
-        setButtons();
 
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        Recycle view
-        setAdapter();
-
+        startRecycleView();
     }
 
-
-    private void setButtons() {
+    private void startRecycleView() {
+        getArchivedAppointments();
+        setAdapter();
     }
 
 

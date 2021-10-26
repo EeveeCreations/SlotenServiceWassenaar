@@ -167,20 +167,17 @@ class FirebaseConnection {
     //    _____________Write to NEW_______________________//
 
     //    Write to Appointment database
-    public boolean writeAppointmentToDB(Appointment appointment) {
+    public void writeAppointmentToDB(Appointment appointment) {
         String id = reference.push().getKey();
         appointment.setId(id);
 
-        assert id != null;
         reference.child(id).setValue(appointment);
-        return true;
     }
 
     //    Write to Service database
     public void writeServiceToDB(kService kService) {
         String id = service.push().getKey();
 
-        assert id != null;
         service.child(id).setValue(kService);
     }
 //    _____________Write to  UPDATE_______________________//

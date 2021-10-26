@@ -21,9 +21,7 @@ import nl.ekarremans.slotenservice.models.Appointment;
 
 public class CalenderActivity extends AppCompatActivity implements AppointmentAdapter.OnNoteListener {
     private ArrayList<Appointment> appointments = new ArrayList<>();
-    private RecyclerView appointmentRecycler;
-    private FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
-    private String today;
+    private final FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
     private static CalenderActivity calenderActivity;
 
     public static CalenderActivity getInstance() {
@@ -41,7 +39,7 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
         //        Set Elements
         final Button archive = findViewById(R.id.openArchive);
         final Button appointment = findViewById(R.id.newAppointment);
-        appointmentRecycler = findViewById(R.id.appointment_recycler);
+        RecyclerView appointmentRecycler = findViewById(R.id.appointment_recycler);
 
 //        Set Onclick Listeners
         archive.setOnClickListener(this::openArchive);
