@@ -8,21 +8,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 
+import nl.ekarremans.slotenservice.Observers.AppointmentObserver;
+import nl.ekarremans.slotenservice.Observers.AppointmentObserverble;
 import nl.ekarremans.slotenservice.models.Appointment;
 
-public class AppointmentActivity extends AppCompatActivity {
+public class AppointmentActivity extends AppCompatActivity implements AppointmentObserver {
     Appointment currentAppointment = new Appointment();
     FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
+    ArrayList<AppointmentObserverble> observerbles = new ArrayList<>();
+    //    Buttons
+    private Button paidButton;
+    private Button completeButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_appointment);
 //        Get Appointment
-        currentAppointment =(Appointment) getIntent().getExtras().getSerializable("AppID");
-
+        currentAppointment = (Appointment) getIntent().getExtras().getSerializable("AppID");
+        registerAppointmentObserver(currentAppointment);
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -41,27 +50,46 @@ public class AppointmentActivity extends AppCompatActivity {
     }
 
     private void setButtons() {
-        final Button paidButton = findViewById(R.id.paid_service);
-        final Button completeButton = findViewById(R.id.complete_service);
+         paidButton = findViewById(R.id.paid_service);
+        completeButton = findViewById(R.id.complete_service);
 
-        paidButton.setOnClickListener(this::setAppointmentOnPaid);
-        completeButton.setOnClickListener(this::setAppointmentOnCompleted);
-
+        if (currentAppointment.getIsPaid()) {
+            paidButton.setEnabled(false);
+        } else {
+            paidButton.setOnClickListener(this::setAppointmentOnPaid);
+        }
+        if (currentAppointment.getIsCompleted()) {
+            completeButton.setEnabled(false);
+        } else {
+            completeButton.setOnClickListener(this::setAppointmentOnCompleted);
+        }
     }
 
     private void setAppointmentOnCompleted(View view) {
+        completeButton.setEnabled(false);
         currentAppointment.setIsCompleted(!currentAppointment.getIsCompleted());
+        firebaseConnection.updateAppointmentToArchiveDB(currentAppointment);
     }
 
     private void setAppointmentOnPaid(View view) {
+        completeButton.setEnabled(false);
         currentAppointment.setIsPaid(!currentAppointment.getIsPaid());
-
+        firebaseConnection.updateAppointmentToDB(currentAppointment);
     }
 
-//        return To Calender View
+    //        return To Calender View
     @Override
     public boolean onSupportNavigateUp() {
         finish();
         return true;
+    }
+
+    public void registerAppointmentObserver(Appointment appointment) {
+        appointment.registerObserver(this);
+    }
+
+    @Override
+    public void update(Appointment appointment) throws FileNotFoundException, URISyntaxException {
+        setAppointmentSpecifics();
     }
 }

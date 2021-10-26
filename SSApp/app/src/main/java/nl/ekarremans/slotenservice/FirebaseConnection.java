@@ -22,9 +22,15 @@ import nl.ekarremans.slotenservice.models.kService;
 
 class FirebaseConnection {
     static FirebaseConnection firebaseConnection;
-    ArrayList<Appointment> appointments = new ArrayList<>();
-    AppointmentAdapter adapter = AppointmentAdapter.getInstance();
-    FirebaseDatabase database = FirebaseDatabase.getInstance("https://slotenservicevoorschoten-default-rtdb.europe-west1.firebasedatabase.app");
+    private ArrayList<Appointment> appointments = new ArrayList<>();
+    private final AppointmentAdapter adapter = AppointmentAdapter.getInstance();
+    private final FirebaseDatabase database = FirebaseDatabase.getInstance("https://slotenservicevoorschoten-default-rtdb.europe-west1.firebasedatabase.app");
+
+    private final DatabaseReference service = database.getReference("sloten_service/service");
+    private final DatabaseReference archive = database.getReference("sloten_service/archive");
+    private final DatabaseReference reference = database.getReference("sloten_service/appointment");
+
+
 
     public static FirebaseConnection getInstance() {
         if (firebaseConnection == null) {
@@ -33,11 +39,12 @@ class FirebaseConnection {
         return firebaseConnection;
     }
 
+
+
 //    __________________GET ____________________________________________//
     //   Get specific Appointment
     public Appointment getSpecificAppointmentAppointment(String appID){
         final Appointment[] wantedApp = {new Appointment()};
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
         reference.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
@@ -62,8 +69,7 @@ class FirebaseConnection {
     }
     public Appointment getSpecificAppointmentArchive(String appID){
         final Appointment[] wantedApp = {new Appointment()};
-        DatabaseReference reference = database.getReference("sloten_service/archive");
-        reference.addValueEventListener(new ValueEventListener() {
+        archive.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
@@ -85,13 +91,11 @@ class FirebaseConnection {
 
     //   Get archiveAppointments
     public ArrayList<Appointment> getArchiveFromDB() {
-        DatabaseReference reference = database.getReference("sloten_service/archives");
-        reference.addValueEventListener(new ValueEventListener() {
+        appointments.clear();
+        archive.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
                 for (DataSnapshot dataSnapshot : DSS.getChildren()) {
                     Appointment appointment = dataSnapshot.getValue(Appointment.class);
                     appointments.add(appointment);
@@ -107,11 +111,10 @@ class FirebaseConnection {
         return appointments;
     }
 
-    //   Get archiveAppointments
+    //   Get Services
     public ArrayList<kService> getServiceFromDB() {
         ArrayList<kService> services = new ArrayList<>();
-        DatabaseReference reference = database.getReference("sloten_service/service");
-        reference.addValueEventListener(new ValueEventListener() {
+        service.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
@@ -119,7 +122,7 @@ class FirebaseConnection {
                     kService service = dataSnapshot.getValue(kService.class);
                     services.add(service);
                 }
-                AppointmentAdapter.getInstance().notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
 
             }
 
@@ -135,7 +138,6 @@ class FirebaseConnection {
     public ArrayList<Appointment> getDailyAppointmentsFromDB(String today) {
         appointments.clear();
 //        Make sure its only for today
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
         reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot DSS) {
@@ -166,62 +168,53 @@ class FirebaseConnection {
 
     //    Write to Appointment database
     public boolean writeAppointmentToDB(Appointment appointment) {
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
         String id = reference.push().getKey();
         appointment.setId(id);
 
+        assert id != null;
         reference.child(id).setValue(appointment);
         return true;
     }
 
     //    Write to Service database
-    public boolean writeServiceToDB(kService service) {
-        DatabaseReference reference = database.getReference("sloten_service/service");
-        String id = reference.push().getKey();
+    public void writeServiceToDB(kService kService) {
+        String id = service.push().getKey();
 
-        reference.child(id).setValue(service);
-        return true;
+        assert id != null;
+        service.child(id).setValue(kService);
     }
 //    _____________Write to  UPDATE_______________________//
 
-    public boolean updateAppointmentToDB(Appointment appointment) {
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
+    public void updateAppointmentToDB(Appointment appointment) {
         String id = appointment.getId();
         reference.child(id).setValue(appointment);
-        return true;
-    }
-//    Update to Archive
-    public boolean updateAppointmentToArchiveDB(Appointment appointment) {
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
-        DatabaseReference archive = database.getReference("sloten_service/archive");
-        String id = appointment.getId();
-        reference.child(id).removeValue();
-        archive.child(id).setValue(appointment);
-        return true;
     }
 
-    //    Write to Appointment database
-    public boolean updateServiceToDB(kService service) {
-        DatabaseReference reference = database.getReference("sloten_service/service");
-        String id = service.getName();
-        reference.child(id).setValue(service);
-        return true;
+    public void updateServiceToDB(kService kService) {
+        String id = kService.getName();
+        service.child(id).setValue(kService);
     }
+
+    public void updateServiceFromDB(kService kService) {
+        String id = kService.getName();
+        service.child(id).removeValue();
+    }
+
+    //    Transfer to database
+    public void updateAppointmentToArchiveDB(Appointment appointment) {
+        updateAppointmentToDB(appointment);
+        String id = appointment.getId();
+        archive.child(id).setValue(appointment);
+        reference.child(id).removeValue();
+    }
+
     //    _____________Delete from Database_______________________//
 
     //    Write to Appointment database
     public boolean deleteAppointmentFromDB(Appointment appointment) {
-        DatabaseReference reference = database.getReference("sloten_service/appointment");
         String id = appointment.getId();
         reference.child(id).removeValue();
         return true;
     }
 
-    //    Write to Appointment database
-    public boolean updateServiceFromDB(kService service) {
-        DatabaseReference reference = database.getReference("sloten_service/service");
-        String id = service.getName();
-        reference.child(id).removeValue();
-        return true;
-    }
 }

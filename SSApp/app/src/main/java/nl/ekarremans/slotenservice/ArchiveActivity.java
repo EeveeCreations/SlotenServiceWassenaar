@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import nl.ekarremans.slotenservice.models.Appointment;
@@ -56,9 +57,15 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
 
     @Override
     public void onNoteClick(int position) {
-
+        Appointment appointment = archived.get(position);
+        openSeeAppointment(appointment);
     }
 
+    private void openSeeAppointment(Appointment appointment) {
+        Intent intent = new Intent(this, AppointmentActivity.class);
+        intent.putExtra("AppID", (Serializable) appointment);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onSupportNavigateUp() {

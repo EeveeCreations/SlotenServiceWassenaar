@@ -1,9 +1,16 @@
 package nl.ekarremans.slotenservice.models;
 
+import java.io.FileNotFoundException;
 import java.io.Serializable;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 
-public class Appointment  implements Serializable {
-//    Attributes
+import nl.ekarremans.slotenservice.AppointmentActivity;
+import nl.ekarremans.slotenservice.Observers.AppointmentObserver;
+import nl.ekarremans.slotenservice.Observers.AppointmentObserverble;
+
+public class Appointment implements Serializable, AppointmentObserverble {
+    //    Attributes
     private String id;
     private String service;
     private String phone;
@@ -13,11 +20,12 @@ public class Appointment  implements Serializable {
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
+    private ArrayList<AppointmentObserver> observers = new ArrayList<>();
 
 
 //    Constructor
 
-    public Appointment( String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
+    public Appointment(String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
         this.service = service;
         this.customerName = customerName;
         this.phone = phone;
@@ -73,14 +81,18 @@ public class Appointment  implements Serializable {
 
     public void setIsPaid(boolean isPaid) {
         this.isPaid = isPaid;
+//        Update();
     }
 
     public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setIsCompleted(boolean isCompleted) {
+    public void setIsCompleted(boolean isCompleted)
+//            throws FileNotFoundException, URISyntaxException
+    {
         this.isCompleted = isCompleted;
+//        Update();
     }
 
     public String getService() {
@@ -113,5 +125,24 @@ public class Appointment  implements Serializable {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    @Override
+    public void registerObserver(AppointmentObserver observer) {
+        this.observers.add(observer);
+    }
+
+    @Override
+    public void unregisterObserver(AppointmentObserver observer) {
+        this.observers.remove(observer);
+    }
+
+
+    @Override
+    public void Update() throws FileNotFoundException, URISyntaxException {
+        for (AppointmentObserver observer : this.observers) {
+            observer.update(this);
+        }
+
     }
 }
