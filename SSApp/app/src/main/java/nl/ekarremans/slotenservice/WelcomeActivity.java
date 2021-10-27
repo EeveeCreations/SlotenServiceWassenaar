@@ -5,24 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-
-import nl.ekarremans.slotenservice.models.Appointment;
+import java.util.Date;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_MS = 5000;
+    private final int SPLASH_DISPLAY_MS = 2000;
+    private final FirebaseConnection firebaseConnection = FirebaseConnection.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        //        prepare Recycle
-        getAppointmentsOfTheDay();
+        String today =getAppointmentsOfTheDay(); ;
+        setAllAppointmentsOfYesterdayToArchive(today);
 
 //      Show logo of SSVW  voor doorgaan naar Calender
         new Handler().postDelayed(new Runnable() {
@@ -36,10 +36,24 @@ public class WelcomeActivity extends AppCompatActivity {
         }, SPLASH_DISPLAY_MS);
 
     }
+
+
     private String getAppointmentsOfTheDay() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM");
-        String today = dtf.format(LocalDateTime.now());
-        FirebaseConnection.getInstance().getDailyAppointmentsFromDB(today);
-        return today;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String sToday = dtf.format(LocalDateTime.now());
+        firebaseConnection.getDailyAppointmentsFromDB(sToday);
+        return sToday;
+    }
+
+    //________________________ Set all Appointments of Yesterday to Archive ____________________________________________________________//
+    private void setAllAppointmentsOfYesterdayToArchive(String sToday) {
+        SimpleDateFormat stf = new SimpleDateFormat("dd-MM-yyyy");
+        Date today = null;
+        try {
+            today = stf.parse(sToday);
+            firebaseConnection.moveYesterdayAppointmentsToArchive(today);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

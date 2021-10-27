@@ -32,14 +32,14 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
         startRecycleView();
     }
 
+    //________________________Start RecyclerView ____________________________________________________________//
+
     private void startRecycleView() {
         getArchivedAppointments();
         setAdapter();
     }
 
-
     private void setAdapter() {
-        getArchivedAppointments();
         AppointmentAdapter adapter = new AppointmentAdapter(archived, this);
         RecyclerView appointmentRecycler = findViewById(R.id.archive_recycler);
 
@@ -65,6 +65,7 @@ public class ArchiveActivity extends AppCompatActivity implements AppointmentAda
         intent.putExtra("AppID", (Serializable) appointment);
         startActivity(intent);
     }
+//________________________end RecyclerView ____________________________________________________________//
 
     @Override
     public boolean onSupportNavigateUp() {

@@ -50,15 +50,17 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     }
 
 
+
     private void getInformationOfDatabase() {
         appointments = getAppointmentsOfTheDay();
         setAdapter();
     }
 
 
-    //    Make Recycle View
+    //________________________Start RecyclerView ____________________________________________________________//
+
     private ArrayList<Appointment> getAppointmentsOfTheDay() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String today = dtf.format(LocalDateTime.now());
         return firebaseConnection.getDailyAppointmentsFromDB(today);
     }
@@ -95,6 +97,7 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
     }
 
     private void openArchive(View view) {
+        firebaseConnection.getArchiveFromDB();
         Intent intent = new Intent(this, ArchiveActivity.class);
         startActivity(intent);
     }
