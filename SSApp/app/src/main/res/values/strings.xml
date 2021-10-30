@@ -28,7 +28,7 @@
     <string name="placeholder_name">KlantNaam</string>
     <string name="placeholder_time">00:00</string>
 
-    <string name="placeholder_date">07-12</string>
+    <string name="placeholder_date">07–12</string>
     <string name="placeholder_paid">De uitvoering is betaalt</string>
     <string name="placeholder_completed">De uitvoering is niet afgerond</string>
     <string name="placeholder_phone">06–1234567890</string>
@@ -36,7 +36,11 @@
     <string name="placeholder_service">Dienst</string>
     <string name="placeholder_null"> </string>
 
-
+    <!--Hints -->
+    <string name="hint_date">(dd–mm) </string>
+    <string name="hint_time">00:00</string>
+    <string name="hint_phone">06–1234567890</string>
+    <string name="hint_price">0,00</string>
 
     <!--    Archive Screen-->
     <string name="archive">Archief</string>
@@ -65,9 +69,6 @@
     <string name="success_connection_title">Afspraak toegevoegd</string>
     <string name="success_connection_body">De afspraak is toegevoegd aan uw calender.</string>
     <string name="title_activity_maps">MapsActivity</string>
-
-
-
 
 
 </resources>

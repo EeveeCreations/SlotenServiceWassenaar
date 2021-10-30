@@ -27,6 +27,7 @@
       android:layout_marginStart="32dp"
       android:layout_marginTop="3dp"
       android:ems="10"
+      android:hint="@string/hint_price"
       android:inputType="numberDecimal"
       app:layout_constraintStart_toEndOf="@+id/appointment_service_Spinner"
       app:layout_constraintTop_toBottomOf="@+id/appointment_price" />
@@ -86,6 +87,7 @@
       android:layout_height="54dp"
       android:layout_marginStart="32dp"
       android:layout_marginTop="3dp"
+      android:hint="@string/hint_time"
       android:ems="10"
       android:inputType="time"
       app:layout_constraintStart_toStartOf="parent"
@@ -99,6 +101,7 @@
       android:layout_marginTop="3dp"
       android:ems="10"
       android:inputType="date"
+      android:hint="@string/hint_date"
       app:layout_constraintStart_toEndOf="@+id/appointment_edit_time"
       app:layout_constraintTop_toBottomOf="@+id/appointment_date" />
 
@@ -145,6 +148,7 @@
       android:layout_marginTop="4dp"
       android:layout_marginEnd="37dp"
       android:ems="10"
+      android:hint="@string/hint_phone"
       android:inputType="phone"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
