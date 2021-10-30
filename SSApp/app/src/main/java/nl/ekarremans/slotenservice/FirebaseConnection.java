@@ -26,6 +26,8 @@ import nl.ekarremans.slotenservice.models.kService;
 class FirebaseConnection {
     static FirebaseConnection firebaseConnection;
     private ArrayList<Appointment> appointments = new ArrayList<>();
+    private ArrayList<Appointment> archives = new ArrayList<>();
+
     private final AppointmentAdapter adapter = AppointmentAdapter.getInstance();
     private final FirebaseDatabase database = FirebaseDatabase.getInstance("https://slotenservicevoorschoten-default-rtdb.europe-west1.firebasedatabase.app");
 
@@ -93,14 +95,14 @@ class FirebaseConnection {
 
     //   Get archiveAppointments
     public ArrayList<Appointment> getArchiveFromDB() {
-        appointments.clear();
         archive.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
+                archives.clear();
                 for (DataSnapshot dataSnapshot : DSS.getChildren()) {
                     Appointment appointment = dataSnapshot.getValue(Appointment.class);
-                    appointments.add(appointment);
+                    archives.add(appointment);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -110,7 +112,7 @@ class FirebaseConnection {
                 Log.w(TAG, String.valueOf(R.string.failed_connection_title));
             }
         });
-        return appointments;
+        return archives;
     }
 
     //   Get Services
@@ -120,6 +122,7 @@ class FirebaseConnection {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
+                services.clear();
                 for (DataSnapshot dataSnapshot : DSS.getChildren()) {
                     kService service = dataSnapshot.getValue(kService.class);
                     services.add(service);
@@ -138,12 +141,12 @@ class FirebaseConnection {
 
     //    Get Day Appointments
     public ArrayList<Appointment> getDailyAppointmentsFromDB(String today) {
-        appointments.clear();
 //        Make sure its only for today
         appointment.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
                 /*Specify the date*/
+                appointments.clear();
                 for (DataSnapshot dataSnapshot : DSS.getChildren()) {
                     Appointment appointment = dataSnapshot.getValue(Appointment.class);
                     if (appointment.getDate().equals(today)) {
@@ -186,6 +189,7 @@ class FirebaseConnection {
     public void updateAppointmentToDB(Appointment appointment) {
         String id = appointment.getId();
         this.appointment.child(id).setValue(appointment);
+
     }
 
     public void updateServiceToDB(kService kService) {
@@ -223,6 +227,7 @@ class FirebaseConnection {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot DSS) {
+                appointments.clear();
                 for (DataSnapshot dataSnapshot : DSS.getChildren()) {
                     Appointment appointment = dataSnapshot.getValue(Appointment.class);
                     Date appDateDTF = null;

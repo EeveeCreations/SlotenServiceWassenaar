@@ -21,8 +21,8 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        String today =getAppointmentsOfTheDay(); ;
-        setAllAppointmentsOfYesterdayToArchive(today);
+        setAllLists();
+
 
 //      Show logo of SSVW  voor doorgaan naar Calender
         new Handler().postDelayed(new Runnable() {
@@ -35,6 +35,16 @@ public class WelcomeActivity extends AppCompatActivity {
             }
         }, SPLASH_DISPLAY_MS);
 
+    }
+
+    private void setAllLists() {
+        String today = getAppointmentsOfTheDay();
+        setAllAppointmentsOfYesterdayToArchive(today);
+        setArchived();
+    }
+
+    private void setArchived() {
+        firebaseConnection.getArchiveFromDB();
     }
 
 

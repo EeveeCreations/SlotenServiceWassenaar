@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
@@ -82,6 +83,7 @@ public class AddAppointmentActivity extends AppCompatActivity {
 //      set correct Setup for information
         aDate = aDate.replace("/", "-");
         aDate = aDate.replace(" ", "");
+        aDate+= "-" + LocalDate.now().getYear();
 
         aTime = aTime.replace("-", ":");
         aTime = aTime.replace(" ", "");

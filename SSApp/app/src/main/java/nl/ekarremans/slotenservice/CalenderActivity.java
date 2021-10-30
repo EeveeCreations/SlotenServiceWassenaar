@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -36,19 +37,27 @@ public class CalenderActivity extends AppCompatActivity implements AppointmentAd
 //        Set a View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calender);
-        //        Set Elements
-        final Button archive = findViewById(R.id.openArchive);
-        final Button appointment = findViewById(R.id.newAppointment);
-        RecyclerView appointmentRecycler = findViewById(R.id.appointment_recycler);
 
-//        Set Onclick Listeners
-        archive.setOnClickListener(this::openArchive);
-        appointment.setOnClickListener(this::openAddAppointment);
+        setEllements();
 
         //    Recycler View
         startRecycleView();
     }
 
+    private void setEllements() {
+        final Button archive = findViewById(R.id.openArchive);
+        final Button appointment = findViewById(R.id.newAppointment);
+        RecyclerView appointmentRecycler = findViewById(R.id.appointment_recycler);
+        ActionBar actionBar = getActionBar();
+
+        archive.setOnClickListener(this::openArchive);
+        appointment.setOnClickListener(this::openAddAppointment);
+
+        if (actionBar != null) {
+            actionBar.setLogo(R.drawable.archive_icon);
+            actionBar.setIcon(R.drawable.archive_icon);
+        }
+    }
 
 
     private void getInformationOfDatabase() {
