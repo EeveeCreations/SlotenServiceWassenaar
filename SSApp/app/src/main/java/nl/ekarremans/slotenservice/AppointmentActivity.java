@@ -2,6 +2,8 @@ package nl.ekarremans.slotenservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,7 @@ public class AppointmentActivity extends AppCompatActivity {
     //    Buttons
     private Button paidButton;
     private Button completeButton;
+    private TextView phoneIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class AppointmentActivity extends AppCompatActivity {
         //    Buttons
         paidButton = findViewById(R.id.paid_service);
         completeButton = findViewById(R.id.complete_service);
+        phoneIcon = findViewById(R.id.reg_app_phone);
 
         if (currentAppointment.getIsPaid()) {
             paidButton.setEnabled(false);
@@ -54,6 +58,8 @@ public class AppointmentActivity extends AppCompatActivity {
         } else {
             completeButton.setOnClickListener(this::setAppointmentOnCompleted);
         }
+
+        phoneIcon.setOnClickListener(this::callPhoneClient);
     }
 
     private void setAppointmentOnCompleted(View view) {
@@ -68,6 +74,12 @@ public class AppointmentActivity extends AppCompatActivity {
         firebaseConnection.updateAppointmentToDB(currentAppointment);
     }
 
+    private void callPhoneClient(View view) {
+        String number = currentAppointment.getPhone().replace("06", "");
+        Intent callIntent = new Intent(Intent.ACTION_DIAL); // Could have been call but is here so a miss click can be overcome
+        callIntent.setData(Uri.parse("tel:"+ number));
+        startActivity(callIntent);
+    }
     //        return To Calender View
     @Override
     public boolean onSupportNavigateUp() {
