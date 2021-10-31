@@ -85,8 +85,8 @@ public class AppointmentActivity extends AppCompatActivity {
     }
 
     private void callPhoneClient(View view) {
-        String number = currentAppointment.getPhone().replace("06", "");
-        Intent callIntent = new Intent(Intent.ACTION_DIAL); // Could have been call but is here so a miss click can be overcome
+        String number = currentAppointment.getPhone().replace("", "");
+        Intent callIntent = new Intent(Intent.ACTION_CALL); // Could have been call but is here so a miss click can be overcome
         callIntent.setData(Uri.parse("tel:"+ number));
         startActivity(callIntent);
     }

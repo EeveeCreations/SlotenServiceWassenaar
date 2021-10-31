@@ -13,6 +13,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:text="@string/archive"
+        android:textSize="@dimen/h3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:textSize="@dimen/h3"
         android:text="@string/create_appointment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
