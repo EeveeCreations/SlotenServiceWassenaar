@@ -23,6 +23,13 @@
     <string name="phone_icon">✆</string>
     <string name="euro_icon">€</string>
 
+    <!--If appointments are paid and completed-->
+    <string name="appointment_is_paid">De uitvoering is betaalt</string>
+    <string name="appointment_is_not_paid">De uitvoering is niet betaalt</string>
+
+    <string name="appointment_is_completed">De uitvoering is afgerond</string>
+    <string name="appointment_is_not_completed">De uitvoering is niet afgerond</string>
+
 
     <!--Placeholders-->
     <string name="placeholder_name">KlantNaam</string>

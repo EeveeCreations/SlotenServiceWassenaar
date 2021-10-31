@@ -41,6 +41,19 @@ public class AppointmentActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.reg_app_time)).setText(currentAppointment.getTime());
         ((TextView) findViewById(R.id.reg_app_price)).setText("€" + String.valueOf(currentAppointment.getPrice()));
         ((TextView) findViewById(R.id.reg_app_service)).setText(currentAppointment.getService());
+        ((TextView) findViewById(R.id.reg_app_paid)).setText(R.string.appointment_is_not_paid);
+        ((TextView) findViewById(R.id.reg_app_completed)).setText(R.string.appointment_is_not_completed);
+
+        changeToActualText();
+    }
+
+    private void changeToActualText() {
+        if(currentAppointment.getIsPaid()) {
+            ((TextView) findViewById(R.id.reg_app_paid)).setText(R.string.appointment_is_paid);
+        }
+        if(currentAppointment.getIsCompleted()) {
+            ((TextView) findViewById(R.id.reg_app_completed)).setText(R.string.appointment_is_completed);
+        }
     }
 
     private void setButtons() {

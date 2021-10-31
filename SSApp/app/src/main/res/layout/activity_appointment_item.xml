@@ -27,9 +27,11 @@
         android:layout_width="65dp"
         android:layout_height="36dp"
         android:layout_marginStart="33dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/placeholder_time"
         android:textSize="@dimen/time"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/client_cname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
