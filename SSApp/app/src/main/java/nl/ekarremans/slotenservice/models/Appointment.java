@@ -1,13 +1,18 @@
 package nl.ekarremans.slotenservice.models;
 
-import java.sql.Timestamp;
+import java.io.FileNotFoundException;
+import java.io.Serializable;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
 
-class Appointment {
-//    Attributes
-
+public class Appointment implements Serializable {
+    //    Attributes
+    private String id;
     private String service;
+    private String phone;
     private String customerName;
-    private Timestamp time;
+    private String time;
+    private String date;
     private float price;
     private boolean isPaid;
     private boolean isCompleted;
@@ -15,33 +20,70 @@ class Appointment {
 
 //    Constructor
 
-    public Appointment(String service, String customerName, Timestamp time, float price, boolean isPaid, boolean isCompleted) {
+    public Appointment(String service, String customerName, String phone, String time, String date, float price, boolean isPaid, boolean isCompleted) {
         this.service = service;
         this.customerName = customerName;
+        this.phone = phone;
         this.time = time;
+        this.date = date;
         this.price = price;
         this.isPaid = isPaid;
         this.isCompleted = isCompleted;
     }
 
+    //    Firebase
+    public Appointment() {
+    }
 
 //    Setters and Getters
 
 
-    public boolean isPaid() {
-        return isPaid;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setPaid(boolean paid) {
         isPaid = paid;
     }
 
-    public boolean isCompleted() {
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public boolean getIsPaid() {
+        return isPaid;
+    }
+
+    public void setIsPaid(boolean isPaid) {
+        this.isPaid = isPaid;
+    }
+
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public String getService() {
@@ -60,11 +102,11 @@ class Appointment {
         this.customerName = customerName;
     }
 
-    public Timestamp getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Timestamp time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -75,4 +117,5 @@ class Appointment {
     public void setPrice(float price) {
         this.price = price;
     }
+
 }

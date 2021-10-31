@@ -1,0 +1,105 @@
+{
+  "sloten_service": {
+    "appointment": {
+      "appointment": {
+        "customerName": "Horrow",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "2": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "3": {
+        "customerName": "Eefje",
+        "service": "Deur vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      },
+      "4": {
+        "customerName": "Yolanda",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "17-10",
+        "isPaid": true,
+        "isCompleted": false
+      }
+    },
+    "archives": {
+      "7": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "23-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "8": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "22-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "39": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "24-10",
+        "isPaid": true,
+        "isCompleted": true
+      },
+      "23": {
+        "customerName": "Eefje",
+        "service": "Slot vervangen",
+        "price": 10.00,
+        "phone": "061234567890",
+        "time": "12:00",
+        "date": "21-10",
+        "isPaid": true,
+        "isCompleted": true
+      }},
+    "services": {
+      "1": {
+        "name": "Deuren Openen",
+        "price": 88.00
+      },
+      "2": {
+        "name": "Dueren inzetten",
+        "price": 230.00
+      },
+      "3": {
+        "name": "Adviseren",
+        "price": 50.00
+      },
+      "4": {
+        "name": "Sloten Vervangen",
+        "price": 189.00
+      }
+    }
+  }
+}

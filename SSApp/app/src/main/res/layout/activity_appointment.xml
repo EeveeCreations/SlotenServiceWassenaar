@@ -7,12 +7,141 @@
     tools:context=".AppointmentActivity">
 
     <Button
-        android:id="@+id/returnMainButton"
+        android:id="@+id/delete_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="53dp"
-        android:text="@string/return_to"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/reg_app_cname"
+        android:layout_width="329dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/placeholder_name"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/reg_app_date"
+        android:layout_width="161dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/placeholder_date"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reg_app_time"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_phone" />
+
+    <TextView
+        android:id="@+id/reg_app_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/placeholder_completed"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paid_service" />
+
+    <TextView
+        android:id="@+id/reg_app_paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/placeholder_paid"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_service" />
+
+    <TextView
+        android:id="@+id/reg_app_phone"
+        android:layout_width="211dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/placeholder_phone"
+        android:textSize="@dimen/h1"
+        app:layout_constraintBottom_toTopOf="@+id/reg_app_date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_cname" />
+
+    <TextView
+        android:id="@+id/reg_app_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="92dp"
+        android:text="@string/placeholder_service"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toStartOf="@+id/reg_app_price"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_time" />
+
+    <TextView
+        android:id="@+id/reg_app_time"
+        android:layout_width="106dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/placeholder_time"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toStartOf="@+id/reg_app_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/reg_app_price"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/placeholder_price"
+        android:textSize="@dimen/h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/reg_app_service"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_date" />
+
+    <Button
+        android:id="@+id/complete_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/complete_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_completed" />
+
+    <Button
+        android:id="@+id/paid_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/paid_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_paid" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="47dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="7dp"
+        android:text="@string/phone_icon"
+        android:textSize="@dimen/icon"
+        app:layout_constraintEnd_toStartOf="@+id/reg_app_phone"
+        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reg_app_cname" />
 </androidx.constraintlayout.widget.ConstraintLayout>

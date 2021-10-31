@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/calender_appointment_item"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/calender_appointment_height"
+    tools:context=".AppointmentItem">
+
+
+    <TextView
+        android:id="@+id/client_cname"
+        android:layout_width="121dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="36dp"
+        android:text="@string/placeholder_name"
+        android:textSize="@dimen/h2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/appointment_time"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/appointment_time"
+        android:layout_width="65dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="33dp"
+        android:text="@string/placeholder_time"
+        android:textSize="@dimen/time"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/appointment_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/placeholder_null"
+        android:textColor="@color/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

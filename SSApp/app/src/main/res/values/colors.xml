@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <!--    Primary's light-->
-    <color name="prim_light">#FFBB86FC</color>
-    <color name="prim">#FF6200EE</color>
+    <color name="prim_light">#9D71D5</color>
+    <color name="prim">#450C97</color>
     <color name="prim_dark">#FF3700B3</color>
-    <color name="sec_light">#FF03DAC5</color>
-    <color name="sec">#FF018786</color>
+    <color name="sec_light">#18AFA1</color>
+    <color name="sec">#007170</color>
 
 <!--    Primairy's night-->
-    <color name="night_prim_light">#86E0FC</color>
-    <color name="night_prim">#3CCEFB</color>
+    <color name="night_prim_light">#6BAFC5</color>
+    <color name="night_prim">#2B9CBF</color>
     <color name="night_prim_dark">#298DAC</color>
-    <color name="night_sec_light">#9EFF74</color>
-    <color name="night_sec">#7EFF46</color>
+    <color name="night_sec_light">#79C558</color>
+    <color name="night_sec">#50A12D</color>
 
-
+<!--Specifics-->
+    <color name="paid">#79C558</color>
 
 
 <!--    GrayScale-->
@@ -22,6 +23,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="silver">#C0C0C0</color>
     <color name="gray">#808080</color>
+    <color name="hide">#00000000</color>
 
     <!--    Standard Rainbow-->
     <color name="red">#800000</color>
