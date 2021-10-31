@@ -41,7 +41,6 @@ public class AddAppointmentActivity extends AppCompatActivity {
     }
 
     private void addServiceSpinner() {
-        //      todo:  Get all Services from DB
         ArrayList<String> serviceNames = new ArrayList<>();
         serviceNames.add("Advise");
         serviceNames.add("Sloten inzetten");
