@@ -17,6 +17,7 @@ public class AppointmentActivity extends AppCompatActivity {
     //    Buttons
     private Button paidButton;
     private Button completeButton;
+    private Button deleteButton;
     private TextView phoneIcon;
 
     @Override
@@ -46,6 +47,7 @@ public class AppointmentActivity extends AppCompatActivity {
         //    Buttons
         paidButton = findViewById(R.id.paid_service);
         completeButton = findViewById(R.id.complete_service);
+        deleteButton = findViewById(R.id.delete_button);
         phoneIcon = findViewById(R.id.reg_app_phone);
 
         if (currentAppointment.getIsPaid()) {
@@ -59,6 +61,7 @@ public class AppointmentActivity extends AppCompatActivity {
             completeButton.setOnClickListener(this::setAppointmentOnCompleted);
         }
 
+        deleteButton.setOnClickListener(this::deleteAppointment);
         phoneIcon.setOnClickListener(this::callPhoneClient);
     }
 
@@ -75,6 +78,11 @@ public class AppointmentActivity extends AppCompatActivity {
         firebaseConnection.updateAppointmentToDB(currentAppointment);
         returnToMain();
     }
+//    Watchout
+    private void deleteAppointment(View view) {
+       firebaseConnection.deleteAppointmentFromDB(currentAppointment);
+        returnToMain();
+    }
 
     private void callPhoneClient(View view) {
         String number = currentAppointment.getPhone().replace("06", "");
@@ -85,7 +93,6 @@ public class AppointmentActivity extends AppCompatActivity {
 
 
     //        return To Calender View
-
     private void returnToMain(){
         Intent intent = new Intent(this, CalenderActivity.class);
         startActivity(intent);

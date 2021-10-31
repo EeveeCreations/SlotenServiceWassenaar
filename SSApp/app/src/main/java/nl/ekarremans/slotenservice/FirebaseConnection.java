@@ -208,10 +208,10 @@ class FirebaseConnection {
     //    _____________Delete from Database_______________________//
 
     //    Write to Appointment database
-    public boolean deleteAppointmentFromDB(Appointment appointment) {
+    public void deleteAppointmentFromDB(Appointment appointment) {
         String id = appointment.getId();
         this.appointment.child(id).removeValue();
-        return true;
+        this.archive.child(id).removeValue();
     }
 
     //    _____________Appointments to Archive_______________________//
