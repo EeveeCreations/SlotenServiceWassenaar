@@ -66,12 +66,14 @@ public class AppointmentActivity extends AppCompatActivity {
         completeButton.setEnabled(false);
         currentAppointment.setIsCompleted(!currentAppointment.getIsCompleted());
         firebaseConnection.updateAppointmentToArchiveDB(currentAppointment);
+        returnToMain();
     }
 
     private void setAppointmentOnPaid(View view) {
         paidButton.setEnabled(false);
         currentAppointment.setIsPaid(!currentAppointment.getIsPaid());
         firebaseConnection.updateAppointmentToDB(currentAppointment);
+        returnToMain();
     }
 
     private void callPhoneClient(View view) {
@@ -80,7 +82,15 @@ public class AppointmentActivity extends AppCompatActivity {
         callIntent.setData(Uri.parse("tel:"+ number));
         startActivity(callIntent);
     }
+
+
     //        return To Calender View
+
+    private void returnToMain(){
+        Intent intent = new Intent(this, CalenderActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         finish();
