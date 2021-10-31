@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/reg_app_date"
-        android:layout_width="123dp"
+        android:layout_width="161dp"
         android:layout_height="39dp"
         android:layout_marginTop="44dp"
         android:text="@string/placeholder_date"
